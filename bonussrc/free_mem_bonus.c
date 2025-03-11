@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_mem.c                                         :+:      :+:    :+:   */
+/*   free_mem_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:05:08 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 17:01:30 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/11 19:31:57 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,8 @@ static void	free_mem(char **result)
 	free(result);
 }
 
-void	free_mem_struct(t_vars *vars)
+static void	destroy_images(t_vars *vars)
 {
-	if (!vars)
-		return ;
-	if (vars->map)
-		free_mem(vars->map);
-	if (vars->copy)
-		free_mem(vars->copy);
 	if (vars->p)
 		mlx_destroy_image(vars->mlx, vars->p);
 	if (vars->c)
@@ -49,6 +43,19 @@ void	free_mem_struct(t_vars *vars)
 		mlx_destroy_image(vars->mlx, vars->p_e);
 	if (vars->m)
 		mlx_destroy_image(vars->mlx, vars->m);
+	if (vars->g_o)
+		mlx_destroy_image(vars->mlx, vars->g_o);
+}
+
+void	free_mem_struct(t_vars *vars)
+{
+	if (!vars)
+		return ;
+	if (vars->map)
+		free_mem(vars->map);
+	if (vars->copy)
+		free_mem(vars->copy);
+	destroy_images(vars);
 	if (vars->mlx)
 	{
 		if (vars->win)

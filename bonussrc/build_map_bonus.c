@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_map.c                                        :+:      :+:    :+:   */
+/*   build_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:22:38 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 17:01:02 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/11 19:51:40 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,34 @@ int	keys(int key, t_vars *v)
 		new_y += PX;
 	else
 		return (0);
-	if (valid_movement(v, new_x/PX, new_y/PX))
+	if (valid_movement(v, new_x / PX, new_y / PX))
 	{
 		mlx_clear_window(v->mlx, v->win);
 		draw_map(v);
 	}
 	return (0);
+}
+
+static void	touching_enemy(t_vars *v)
+{
+	int	w; 
+	int	h;
+
+	w = 794;
+	h = 579;
+	// w = v->size_x * PX;
+	// h = v->size_y * PX;
+	ft_printf("Ouch! You've dead\n");
+	mlx_clear_window(v->mlx, v->win);
+	v->g_o = mlx_xpm_file_to_image(v->mlx, "Images/loser.xpm", &w, &h);
+	mlx_destroy_window(v->mlx, v->win);
+	v->win = mlx_new_window(v->mlx, w, h, "so_long");
+	mlx_hook(v->win, 17, 0, close_window, v);
+	mlx_key_hook(v->win, keys, v);
+	mlx_put_image_to_window(v->mlx, v->win, v->g_o, 0, 0);
+	mlx_loop(v->mlx);
+	free_mem_struct(v);
+	exit(0);
 }
 
 int	valid_movement(t_vars *v, int x, int y)
@@ -113,11 +135,7 @@ int	valid_movement(t_vars *v, int x, int y)
 			}
 		}
 		if (v->map[y][x] == 'M')
-		{
-			ft_printf("Ouch! You've dead\n");
-			free_mem_struct(v);
-			exit(0);
-		}
+			touching_enemy(v);
 		actualize_position(v, x, y, 0);
 		return (1);
 	}

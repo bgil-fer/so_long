@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:46:36 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 16:53:51 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/11 19:32:02 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_vars
 	void	*w;
 	void	*p_e;
 	void	*m;
+	void	*g_o;
 	int		collectable;
 	int		player_x;
 	int		player_y;

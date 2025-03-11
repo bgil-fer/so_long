@@ -6,7 +6,7 @@
 #    By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/06 10:07:29 by bgil-fer          #+#    #+#              #
-#    Updated: 2025/03/11 18:29:15 by bgil-fer         ###   ########.fr        #
+#    Updated: 2025/03/11 18:40:00 by bgil-fer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,6 +97,4 @@ fclean: clean
 # Recompilar desde cero
 re: fclean all
 
-re bonus: fclean all bonus
-
-.PHONY: all bonus clean fclean re  re bonus
+.PHONY: all bonus clean fclean re

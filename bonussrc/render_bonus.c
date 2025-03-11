@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:05:24 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 17:04:21 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/11 18:40:18 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	render_images(t_vars *v)
 	if (!v->w)
 		error(10, v);
 	v->p_e = mlx_xpm_file_to_image(v->mlx, "Images/rabit_exit.xpm", &w, &h);
-	// if (!v->p_e)
-	// 	error(10, v);
 	v->m = mlx_xpm_file_to_image(v->mlx, "Images/Enemy.xpm", &w, &h);
 	if (!v->p_e || !v->m)
 		error(10, v);
