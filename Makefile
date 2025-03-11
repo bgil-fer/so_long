@@ -6,7 +6,7 @@
 #    By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/06 10:07:29 by bgil-fer          #+#    #+#              #
-#    Updated: 2025/03/11 18:40:00 by bgil-fer         ###   ########.fr        #
+#    Updated: 2025/03/11 20:22:33 by bgil-fer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS 	= 	src/main.c src/check_errors.c src/free_mem.c src/build_map.c src/render
 
 SRC_BONUS = bonussrc/main_bonus.c bonussrc/check_errors_bonus.c bonussrc/free_mem_bonus.c \
 			bonussrc/build_map_bonus.c bonussrc/render_bonus.c bonussrc/check_route_bonus.c \
-			bonussrc/make_map_in_vars_bonus.c
+			bonussrc/make_map_in_vars_bonus.c bonussrc/winner_or_loser_bonus.c
 
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 BONUS_OBJS = $(patsubst $(BONUSSRCDIR)/%.c, $(BONUSOBJDIR)/%.o, $(SRC_BONUS))
@@ -79,7 +79,7 @@ $(BONUSOBJDIR)/%.o: $(BONUSSRCDIR)/%.c | $(BONUSOBJDIR)
 
 # Enlazar el juego con las librerías
 $(NAME_BONUS): $(BONUS_OBJS) $(LIBFT) $(MLX)
-	$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(NAME_BONUS) $(LIBS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBS) -o $(NAME_BONUS)
 
 # Limpiar archivos intermedios
 clean:
