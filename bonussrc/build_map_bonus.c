@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:22:38 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 19:51:40 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/11 20:16:59 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,28 +91,6 @@ int	keys(int key, t_vars *v)
 	return (0);
 }
 
-static void	touching_enemy(t_vars *v)
-{
-	int	w; 
-	int	h;
-
-	w = 794;
-	h = 579;
-	// w = v->size_x * PX;
-	// h = v->size_y * PX;
-	ft_printf("Ouch! You've dead\n");
-	mlx_clear_window(v->mlx, v->win);
-	v->g_o = mlx_xpm_file_to_image(v->mlx, "Images/loser.xpm", &w, &h);
-	mlx_destroy_window(v->mlx, v->win);
-	v->win = mlx_new_window(v->mlx, w, h, "so_long");
-	mlx_hook(v->win, 17, 0, close_window, v);
-	mlx_key_hook(v->win, keys, v);
-	mlx_put_image_to_window(v->mlx, v->win, v->g_o, 0, 0);
-	mlx_loop(v->mlx);
-	free_mem_struct(v);
-	exit(0);
-}
-
 int	valid_movement(t_vars *v, int x, int y)
 {
 	if (v->map[y][x] != '1')
@@ -129,10 +107,7 @@ int	valid_movement(t_vars *v, int x, int y)
 				return (1);
 			}
 			else
-			{
-				free_mem_struct(v);
-				exit(0);
-			}
+				winner(v);
 		}
 		if (v->map[y][x] == 'M')
 			touching_enemy(v);

@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:46:36 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 19:32:02 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/11 20:16:02 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_vars
 	void	*p_e;
 	void	*m;
 	void	*g_o;
+	void	*winn;
 	int		collectable;
 	int		player_x;
 	int		player_y;
@@ -82,5 +83,7 @@ void	render_images(t_vars *v);
 void	make_map_in_vars(t_vars *vars, int fd);
 void	check_filetype(char *filename, t_vars *vars);
 void	count_lines(char *file, t_vars *vars);
+void	winner(t_vars *v);
+void	touching_enemy(t_vars *v);
 
 #endif

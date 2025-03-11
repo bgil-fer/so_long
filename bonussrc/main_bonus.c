@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:44:36 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 19:22:30 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/11 19:58:47 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	inicialize_vars(t_vars *vars)
 	vars->p_e = NULL;
 	vars->m = NULL;
 	vars->g_o = NULL;
+	vars->winn = NULL;
 }
 
 int	main(int argc, char **argv)
