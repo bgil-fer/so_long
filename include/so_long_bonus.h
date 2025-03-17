@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:46:36 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 20:16:02 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:32:09 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct	s_vars
 	int		size_x;
 	int		size_y;
 	int		movements;
+	char	*move;
 }				t_vars;
 
 int		close_window(t_vars *vars);

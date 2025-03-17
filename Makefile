@@ -6,7 +6,7 @@
 #    By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/06 10:07:29 by bgil-fer          #+#    #+#              #
-#    Updated: 2025/03/11 20:22:33 by bgil-fer         ###   ########.fr        #
+#    Updated: 2025/03/17 19:12:51 by bgil-fer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_BONUS	=	so_long_bonus
 
 # Compilador y flags
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -Iinclude -Ilib/minilibx-linux -Ilib/libft
+CFLAGS		=	-Wall -Wextra -Werror -Iinclude -Ilib/minilibx-linux -Ilib/libft -g3
 #-g3 -fsanitize=address
 
 # Directorios

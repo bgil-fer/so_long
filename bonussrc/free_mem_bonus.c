@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:05:08 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 19:59:19 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:03:02 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	free_mem_struct(t_vars *vars)
 	if (vars->copy)
 		free_mem(vars->copy);
 	destroy_images(vars);
+	if (vars->move)
+		free(vars->move);
 	if (vars->mlx)
 	{
 		if (vars->win)

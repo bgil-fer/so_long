@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:44:36 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 19:58:47 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:26:56 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ int	close_window(t_vars *vars)
 	free_mem_struct(vars);
 	exit(0);
 	return (0);
-}
-
-void	error2(int code)
-{
-	if (code == 11)
-		ft_printf("\n");
 }
 
 void	error(int code, t_vars *vars)
@@ -48,8 +42,6 @@ void	error(int code, t_vars *vars)
 		ft_printf("Memory usage error\n");
 	else if (code == 10)
 		ft_printf("Error while mounting images\n");
-	else
-		error2(code);
 	free_mem_struct(vars);
 	exit(1);
 }
@@ -79,6 +71,7 @@ void	inicialize_vars(t_vars *vars)
 	vars->m = NULL;
 	vars->g_o = NULL;
 	vars->winn = NULL;
+	vars->move = ft_strdup ("Movements: 0");
 }
 
 int	main(int argc, char **argv)

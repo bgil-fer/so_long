@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgil-fer <bgil-fer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:47:19 by bgil-fer          #+#    #+#             */
-/*   Updated: 2024/10/11 14:45:12 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:50:07 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char	*ft_itoa(int n)
 
 	num = n;
 	count = ft_count_digit(n);
-	ptr = malloc((count + 1) * sizeof(char));
-	if (ptr == 0)
+	ptr = ft_calloc(count + 1, sizeof(char));
+	if (ptr == NULL)
 		return (0);
 	if (num < 0)
 	{

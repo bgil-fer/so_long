@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:22:38 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 20:16:59 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:57:12 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,16 @@ void	draw_map(t_vars *v)
 				mlx_put_image_to_window(v->mlx, v->win, v->m, j * PX, i * PX);
 		}
 	}
+	j = -1;
+	while ((v->size_x - 1) != j++)
+		mlx_put_image_to_window(v->mlx, v->win, v->f, j * PX, i * PX);
+	mlx_string_put(v->mlx, v->win, PX, (v->size_y * PX) - 40, 0xff7f00, v->move);
 }
 
 static void	actualize_position(t_vars *v, int x, int y, int code)
 {
+	char	*move;
+
 	if (code == 1)
 	{
 		v->map[v->player_y][v->player_x] = '0';
@@ -61,7 +67,12 @@ static void	actualize_position(t_vars *v, int x, int y, int code)
 		v->map[y][x] = 'P';
 	}
 	v->movements++;
+	move = NULL;
+	move = ft_itoa(v->movements);
+	free(v->move);
+	v->move = ft_strjoin("Movements: ", move);
 	ft_printf("Movements = %i\n", v->movements);
+	free(move);
 }
 
 int	keys(int key, t_vars *v)
@@ -123,7 +134,7 @@ void	build_map(t_vars *vars)
 	int	h;
 
 	w = PX * vars->size_x;
-	h = PX * (vars->size_y - 1);
+	h = PX * (vars->size_y); //-1
 	render_images(vars);
 	vars->win = mlx_new_window(vars->mlx, w, h, "so_long");
 	draw_map(vars);
