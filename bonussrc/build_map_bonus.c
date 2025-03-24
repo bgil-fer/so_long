@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:22:38 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/17 19:57:12 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:43:49 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,12 @@ void	draw_map(t_vars *v)
 	{
 		j = -1;
 		while (v->map[i][++j])
-		{
-			if (v->map[i][j] == 'P')
-				mlx_put_image_to_window(v->mlx, v->win, v->p, j * PX, i * PX);
-			if (v->map[i][j] == 'E')
-				mlx_put_image_to_window(v->mlx, v->win, v->e, j * PX, i * PX);
-			if (v->map[i][j] == 'C')
-				mlx_put_image_to_window(v->mlx, v->win, v->c, j * PX, i * PX);
-			if (v->map[i][j] == '1')
-				mlx_put_image_to_window(v->mlx, v->win, v->w, j * PX, i * PX);
-			if (v->map[i][j] == '0')
-				mlx_put_image_to_window(v->mlx, v->win, v->f, j * PX, i * PX);
-			if (v->map[i][j] == 'L')
-				mlx_put_image_to_window(v->mlx, v->win, v->p_e, j * PX, i * PX);
-			if (v->map[i][j] == 'M')
-				mlx_put_image_to_window(v->mlx, v->win, v->m, j * PX, i * PX);
-		}
+			fill_map(v, i, j);
 	}
 	j = -1;
 	while ((v->size_x - 1) != j++)
 		mlx_put_image_to_window(v->mlx, v->win, v->f, j * PX, i * PX);
-	mlx_string_put(v->mlx, v->win, PX, (v->size_y * PX) - 40, 0xff7f00, v->move);
+	mlx_string_put(v->mlx, v->win, PX, (v->size_y * PX) - 60, ORANGE, v->move);
 }
 
 static void	actualize_position(t_vars *v, int x, int y, int code)
@@ -67,7 +52,6 @@ static void	actualize_position(t_vars *v, int x, int y, int code)
 		v->map[y][x] = 'P';
 	}
 	v->movements++;
-	move = NULL;
 	move = ft_itoa(v->movements);
 	free(v->move);
 	v->move = ft_strjoin("Movements: ", move);
@@ -134,7 +118,7 @@ void	build_map(t_vars *vars)
 	int	h;
 
 	w = PX * vars->size_x;
-	h = PX * (vars->size_y); //-1
+	h = PX * (vars->size_y) - 40;
 	render_images(vars);
 	vars->win = mlx_new_window(vars->mlx, w, h, "so_long");
 	draw_map(vars);

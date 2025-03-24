@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:46:36 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 16:10:40 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:47:18 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 # include "mlx.h"
 # include "libft.h"
-# include <math.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include <stdio.h>
 
 #ifndef PX
 	#define PX 80
@@ -47,7 +45,7 @@ typedef struct	s_vars
 	void	*e;
 	void	*f;
 	void	*w;
-	void	*p_e;
+	void	*pe;
 	int		collectable;
 	int		player_x;
 	int		player_y;

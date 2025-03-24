@@ -6,7 +6,7 @@
 #    By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/06 10:07:29 by bgil-fer          #+#    #+#              #
-#    Updated: 2025/03/17 19:12:51 by bgil-fer         ###   ########.fr        #
+#    Updated: 2025/03/24 10:50:38 by bgil-fer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_BONUS	=	so_long_bonus
 
 # Compilador y flags
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -Iinclude -Ilib/minilibx-linux -Ilib/libft -g3
+CFLAGS		=	-Wall -Wextra -Werror -Iinclude -Ilib/minilibx-linux -Ilib/libft #-g3
 #-g3 -fsanitize=address
 
 # Directorios
@@ -29,15 +29,15 @@ MLXDIR		=	lib/minilibx-linux
 
 # Archivos fuente y objetos
 # $(shell find $(SRCDIR) -name "*.c")
-SRCS 	= 	src/main.c src/check_errors.c src/free_mem.c src/build_map.c src/render.c \
-			src/check_route.c src/make_map_in_vars.c
+SRCS 		= 	src/main.c src/check_errors.c src/free_mem.c src/build_map.c src/render.c \
+				src/check_route.c src/make_map_in_vars.c
 
-SRC_BONUS = bonussrc/main_bonus.c bonussrc/check_errors_bonus.c bonussrc/free_mem_bonus.c \
-			bonussrc/build_map_bonus.c bonussrc/render_bonus.c bonussrc/check_route_bonus.c \
-			bonussrc/make_map_in_vars_bonus.c bonussrc/winner_or_loser_bonus.c
+SRC_BONUS	=	bonussrc/main_bonus.c bonussrc/check_errors_bonus.c bonussrc/free_mem_bonus.c \
+				bonussrc/build_map_bonus.c bonussrc/render_bonus.c bonussrc/check_route_bonus.c \
+				bonussrc/make_map_in_vars_bonus.c bonussrc/winner_or_loser_bonus.c
 
-OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
-BONUS_OBJS = $(patsubst $(BONUSSRCDIR)/%.c, $(BONUSOBJDIR)/%.o, $(SRC_BONUS))
+OBJS		=	$(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
+BONUS_OBJS	=	$(patsubst $(BONUSSRCDIR)/%.c, $(BONUSOBJDIR)/%.o, $(SRC_BONUS))
 
 # Librerías
 LIBFT = $(LIBFTDIR)/libft.a

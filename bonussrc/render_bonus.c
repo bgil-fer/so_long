@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:05:24 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 18:40:18 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:27:30 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	render_images(t_vars *v)
 	v->w = mlx_xpm_file_to_image(v->mlx, "Images/1.xpm", &w, &h);
 	if (!v->w)
 		error(10, v);
-	v->p_e = mlx_xpm_file_to_image(v->mlx, "Images/rabit_exit.xpm", &w, &h);
+	v->pe = mlx_xpm_file_to_image(v->mlx, "Images/rabit_exit.xpm", &w, &h);
 	v->m = mlx_xpm_file_to_image(v->mlx, "Images/Enemy.xpm", &w, &h);
-	if (!v->p_e || !v->m)
+	if (!v->pe || !v->m)
 		error(10, v);
 }
 

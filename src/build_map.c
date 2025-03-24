@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:22:38 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 16:07:56 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:27:30 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	draw_map(t_vars *v)
 			if (v->map[i][j] == '0')
 				mlx_put_image_to_window(v->mlx, v->win, v->f, j * PX, i * PX);
 			if (v->map[i][j] == 'L')
-				mlx_put_image_to_window(v->mlx, v->win, v->p_e, j * PX, i * PX);
+				mlx_put_image_to_window(v->mlx, v->win, v->pe, j * PX, i * PX);
 			j++;
 		}
 		i++;

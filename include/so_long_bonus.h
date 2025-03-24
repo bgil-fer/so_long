@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:46:36 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/17 18:32:09 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:47:11 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 # include "mlx.h"
 # include "libft.h"
-# include <math.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include <stdio.h>
 
 #ifndef PX
 	#define PX 80
@@ -35,7 +33,8 @@ enum
 	KEY_UP = 65362,
 	KEY_DOWN = 65364,
 	KEY_LEFT = 65361,
-	KEY_RIGHT = 65363
+	KEY_RIGHT = 65363,
+	ORANGE = 0xff7f00
 };
 
 typedef struct	s_vars 
@@ -47,7 +46,7 @@ typedef struct	s_vars
 	void	*e;
 	void	*f;
 	void	*w;
-	void	*p_e;
+	void	*pe;
 	void	*m;
 	void	*g_o;
 	void	*winn;
@@ -86,5 +85,6 @@ void	check_filetype(char *filename, t_vars *vars);
 void	count_lines(char *file, t_vars *vars);
 void	winner(t_vars *v);
 void	touching_enemy(t_vars *v);
+void	fill_map(t_vars *v, int i, int j);
 
 #endif

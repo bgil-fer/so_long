@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:05:08 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/11 15:00:42 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:27:30 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	free_mem_struct(t_vars *vars)
 		mlx_destroy_image(vars->mlx, vars->f);
 	if (vars->w)
 		mlx_destroy_image(vars->mlx, vars->w);
-	if (vars->p_e)
-		mlx_destroy_image(vars->mlx, vars->p_e);
+	if (vars->pe)
+		mlx_destroy_image(vars->mlx, vars->pe);
 	if (vars->mlx)
 	{
 		if (vars->win)
