@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:22:38 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/03/24 10:27:30 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:10:22 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	keys(int key, t_vars *v)
 		new_y += PX;
 	else
 		return (0);
-	if (valid_movement(v, new_x, new_y))
+	if (valid_movement(v, new_x / PX, new_y / PX))
 	{
 		mlx_clear_window(v->mlx, v->win);
 		draw_map(v);
@@ -93,8 +93,6 @@ int	keys(int key, t_vars *v)
 
 int	valid_movement(t_vars *v, int x, int y)
 {
-	x = x / PX;
-	y = y / PX;
 	if (v->map[y][x] != '1')
 	{
 		if (v->map[y][x] == 'C')
@@ -110,6 +108,8 @@ int	valid_movement(t_vars *v, int x, int y)
 			}
 			else
 			{
+				v->movements++;
+				ft_printf("Movements = %i\n", v->movements);
 				free_mem_struct(v);
 				exit(0);
 			}
